@@ -6,14 +6,13 @@ const gulp = require('gulp'),
       rename = require('gulp-rename'),
       browserSync = require('browser-sync').create(),
       uglify = require('gulp-uglify'),
-    //   watch = require('gulp'),
       autoprefixer = require('gulp-autoprefixer'),
 	  postcss = require('gulp-postcss'),
 	  cssnano = require('cssnano'),
 	  concat = require('gulp-concat');
 
 function goSass() {
-	return gulp.src('app/scss/style.scss')
+	return gulp.src('app/scss/**/*.scss')
 		.pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(rename({suffix: ".min"}))
 		.pipe(autoprefixer({
@@ -27,7 +26,7 @@ function sync() {
 	browserSync.init({ server: { baseDir: './app' } });
 	gulp.watch("app/*.html").on('change', browserSync.reload);
 	gulp.watch("app/js/main.js" , parallel(minJs)).on('change', browserSync.reload);
-	gulp.watch("app/scss/style.scss" , parallel(goSass)).on('change', browserSync.reload);
+	gulp.watch("app/scss/**/*.scss" , parallel(goSass)).on('change', browserSync.reload);
 }
 
 function minJs(){
