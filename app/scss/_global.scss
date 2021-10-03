@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+.container{
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
